@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { AuthProvider } from "@/contexts/AuthContext";
+import { Analytics } from "@vercel/analytics/next"
 
 
 const geistSans = Geist({
@@ -37,6 +38,7 @@ export default function RootLayout({ children }) {
                 <AuthProvider>
                   <Navbar />
                   {children}
+                  <Analytics />
                 </AuthProvider>
               </ThemeProvider>
             

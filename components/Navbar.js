@@ -95,40 +95,42 @@ const Navbar = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
               </SheetTrigger>
-              <SheetContent className="bg-white">
-                <SheetHeader>
-                  <SheetTitle className="font-bold text-center text-2xl m-12" style={{color: '#6028ff'}}>SazidBlog</SheetTitle>
+              <SheetContent>
+                <SheetHeader className="border-b border-gray-200 dark:border-gray-800 pb-6">
+                  <SheetTitle className="font-bold text-center text-3xl mt-4" style={{color: '#6028ff'}}>SazidBlog</SheetTitle>
                 </SheetHeader>
-                <div className="flex flex-col items-center gap-6">
-                  <Link href="/" className="text-gray-700 transition-colors font-medium" onMouseEnter={(e) => e.target.style.color = '#6028ff'} onMouseLeave={(e) => e.target.style.color = ''}>
+                <div className="flex flex-col items-stretch gap-2 mt-8 px-4">
+                  <Link href="/" className="text-gray-700 dark:text-gray-200 hover:bg-purple-50 dark:hover:bg-gray-800 transition-all font-medium py-4 px-6 rounded-lg text-lg" onMouseEnter={(e) => e.target.style.color = '#6028ff'} onMouseLeave={(e) => e.target.style.color = ''}>
                     Home
                   </Link>
-                  <Link href="/about" className="text-gray-700 transition-colors font-medium" onMouseEnter={(e) => e.target.style.color = '#6028ff'} onMouseLeave={(e) => e.target.style.color = ''}>
+                  <Link href="/about" className="text-gray-700 dark:text-gray-200 hover:bg-purple-50 dark:hover:bg-gray-800 transition-all font-medium py-4 px-6 rounded-lg text-lg" onMouseEnter={(e) => e.target.style.color = '#6028ff'} onMouseLeave={(e) => e.target.style.color = ''}>
                     About
                   </Link>
-                  <Link href="/blog" className="text-gray-700 transition-colors font-medium" onMouseEnter={(e) => e.target.style.color = '#6028ff'} onMouseLeave={(e) => e.target.style.color = ''}>
+                  <Link href="/blog" className="text-gray-700 dark:text-gray-200 hover:bg-purple-50 dark:hover:bg-gray-800 transition-all font-medium py-4 px-6 rounded-lg text-lg" onMouseEnter={(e) => e.target.style.color = '#6028ff'} onMouseLeave={(e) => e.target.style.color = ''}>
                     Blog
                   </Link>
-                  <Link href="/contact" className="text-gray-700 transition-colors font-medium" onMouseEnter={(e) => e.target.style.color = '#6028ff'} onMouseLeave={(e) => e.target.style.color = ''}>
+                  <Link href="/contact" className="text-gray-700 dark:text-gray-200 hover:bg-purple-50 dark:hover:bg-gray-800 transition-all font-medium py-4 px-6 rounded-lg text-lg" onMouseEnter={(e) => e.target.style.color = '#6028ff'} onMouseLeave={(e) => e.target.style.color = ''}>
                     Contact
                   </Link>
-                  {user ? (
-                    <>
-                      <span className="text-gray-700 font-medium">Welcome, {user.name}</span>
-                      <Button variant="outline" onClick={logout}>
-                        Logout
-                      </Button>
-                    </>
-                  ) : (
-                    <>
-                      <Button variant="outline" asChild>
-                        <Link href="/login">Login</Link>
-                      </Button>
-                      <Button asChild>
-                        <Link href="/signup">Sign Up</Link>
-                      </Button>
-                    </>
-                  )}
+                  <div className="mt-8 flex flex-col gap-3 px-4">
+                    {user ? (
+                      <>
+                        <span className="text-gray-700 dark:text-gray-200 font-medium text-center py-2">Welcome, {user.name}</span>
+                        <Button variant="outline" onClick={logout} className="w-full">
+                          Logout
+                        </Button>
+                      </>
+                    ) : (
+                      <>
+                        <Button variant="outline" asChild className="w-full">
+                          <Link href="/login">Login</Link>
+                        </Button>
+                        <Button asChild className="w-full">
+                          <Link href="/signup">Sign Up</Link>
+                        </Button>
+                      </>
+                    )}
+                  </div>
                 </div>
               </SheetContent>
             </Sheet>
